@@ -1,23 +1,35 @@
 package com.baniao.abstrFactoryMethod.shixian;
 
 import com.baniao.abstrFactoryMethod.jiekou.Company;
-import com.baniao.abstrFactoryMethod.jiekou.Computer;
-import com.baniao.abstrFactoryMethod.jiekou.TelePhone;
+import com.baniao.abstrFactoryMethod.jiekou.NotebookComputer;
+import com.baniao.abstrFactoryMethod.jiekou.DesktopPhone;
+import com.baniao.abstrFactoryMethod.jiekou.Mobile;
+import com.baniao.abstrFactoryMethod.jiekou.NotebookComputer;
+import com.baniao.abstrFactoryMethod.jiekou.PersonalComputer;
+import com.baniao.abstrFactoryMethod.jiekou.Mobile;
 
 public class CompanyB implements Company {
 
 	@Override
-	public Computer buildComputer(String Parameter) {
-		if (Parameter.equals("个人电脑")) return new PersonalComputer();
-		else if (Parameter.equals("笔记本电脑")) return new NotebookComputer();
-		else return null;
+	public DesktopPhone buildDesktopPhone() {
+		return new DesktopPhoneB();
 	}
 
 	@Override
-	public TelePhone buildTelePhone(String Parameter) {
-		if (Parameter.equals("座机电话")) return new DesktopPhone();
-		else if (Parameter.equals("手机")) return new Mobile();
-		else return null;
+	public Mobile buildMobile() {
+		return new MobileB();
 	}
+
+	@Override
+	public NotebookComputer buildNotebookComputer() {
+		return new NotebookComputerB();
+	}
+
+	@Override
+	public PersonalComputer buildPersonalComputer() {
+		return new PersonalComputerB();
+	}
+
+	
 
 }
